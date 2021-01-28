@@ -7,12 +7,10 @@ import csv
 import pymongo
 from pymongo.errors import BulkWriteError
 from faker import Factory
-fake_de = Factory.create('de_DE') 
-fake_at = Factory.create('de_AT') 
-fake_ch = Factory.create('de_CH') 
+fake_fr = Factory.create('fr_fr')
 
 from mimesis import Transport
-transport_de = Transport('de')
+transport_de = Transport('fr')
 
 import sys
 
@@ -75,11 +73,11 @@ next_claim_number = 0
 def main():
     num_gen = int(sys.argv[4])
 
-    ls_dates = [fake_de.date_time_between(start_date="-10y", end_date="now", tzinfo=None) for i in range(0,num_gen)]
+    ls_dates = [fake_fr.date_time_between(start_date="-10y", end_date="now", tzinfo=None) for i in range(0,num_gen)]
     ls_dates.sort()
 
     ls_customers = []
-    customer_csvfile = open('output/customers__de_at_ch.csv', newline='\n')
+    customer_csvfile = open('output/customers_fr.csv', newline='\n')
     customer_reader = csv.reader(customer_csvfile, delimiter=',', quotechar='"')
     # skip header
     next(customer_reader)
@@ -232,8 +230,8 @@ def generate_claims(s_policy_number, d_cover_start, f_sum_insured, ls_claims):
         s_claim_number = claim_number(next_claim_number)
         next_claim_number = next_claim_number + 1
 
-        d_claim_date = fake_de.date_between_dates(date_start=d_cover_start, date_end=datetime.today())
-        d_date_settled = fake_de.date_between_dates(date_start=d_claim_date, date_end=(d_claim_date + relativedelta(months=5)))
+        d_claim_date = fake_fr.date_between_dates(date_start=d_cover_start, date_end=datetime.today())
+        d_date_settled = fake_fr.date_between_dates(date_start=d_claim_date, date_end=(d_claim_date + relativedelta(months=5)))
         f_claim_amount = 0.0
         while f_claim_amount == 0.0:
             f_claim_amount = random.random()

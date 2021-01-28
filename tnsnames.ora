@@ -1,0 +1,9 @@
+XE=
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = ec2-15-236-210-228.eu-west-3.compute.amazonaws.com)(PORT = 49161))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )

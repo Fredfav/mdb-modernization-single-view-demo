@@ -7,7 +7,7 @@ import csv
 import pymongo
 from pymongo.errors import BulkWriteError
 from faker import Factory
-fake = Factory.create('de_DE') # using french names, cities, etc.
+fake = Factory.create('fr_FR') # using french names, cities, etc.
 
 from sqlalchemy import create_engine
 import sqlalchemy
@@ -74,7 +74,7 @@ def main():
     ls_dates.sort()
 
     ls_customers = []
-    customer_csvfile = open('output/customers__de_at_ch.csv', newline='\n')
+    customer_csvfile = open('output/customers_fr.csv', newline='\n')
     customer_reader = csv.reader(customer_csvfile, delimiter=',', quotechar='"')
     # skip header
     next(customer_reader)

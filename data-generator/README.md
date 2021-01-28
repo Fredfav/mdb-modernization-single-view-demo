@@ -34,6 +34,12 @@ GRANT ALL PRIVILEGES TO carinsurance;
 GRANT ALL PRIVILEGES TO homeinsurance;
 ```
 
+To refresh the demo:
+```
+DROP USER carinsurance CASCADE;
+DROP USER homeinsurance CASCADE;
+```
+
 __Important:__ Ensure that the target tables in Oracle do not exist, otherwise the generators throw an error. In case you need to drop them, execute the following statements as system user:
 ```
 DROP TABLE HOMEINSURANCE.CLAIM;

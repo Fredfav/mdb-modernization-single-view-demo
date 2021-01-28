@@ -67,6 +67,11 @@ __1.3 Create Constraints__
 Create Primary and Foregin Keys as well as Triggers in Oracle to reflect Change Data Capture.
 Execute the SQL code provided in ```home_insurance_oracle_triggers_and_keys.sql``` as well as ```car_insurance_oracle_triggers_and_keys.sql```. These scripts will create triggers that update the last_change timestamp for each insert or update as well as foreign keys for the sake of completeness.
 
+__1.4 Create Sequences__
+Create the sequences in the CARINSURANCE shema to be able to create additional car insurance policies and claims.
+Execute the SQL code provided in ```car_insurance_oracle_sequences.sql```.
+This script will create a sequence starting from 100 000 with an increment by 1 for both the policy and the claims.
+
 __2. Local Deployment in a VM via Vagrant__
 
 A vagrant file to spin up Oracle in a local virtual machine is available: `deployment/vagrant/Vagrantfile`.

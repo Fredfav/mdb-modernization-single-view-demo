@@ -1,0 +1,1 @@
+sqlplus "system/manager@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=192.168.24.200)(Port=1521))(CONNECT_DATA=(SID=XE)))"

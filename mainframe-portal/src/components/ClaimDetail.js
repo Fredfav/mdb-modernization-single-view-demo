@@ -55,7 +55,9 @@ class ClaimDetail extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    console.log("mapStateToProps PolicyDetail")
+    console.log("mapStateToProps PolicyDetail");
+    console.log(ownProps.match.params.id);
+
     return {
         claim: state.carClaims.find(e => e.claimId === ownProps.match.params.id)
     }

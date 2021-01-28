@@ -4,9 +4,7 @@ import random
 import csv
 import sys
 from faker import Factory
-fake_de = Factory.create('de_DE') 
-fake_at = Factory.create('de_AT') 
-fake_ch = Factory.create('de_CH') 
+fake_fr = Factory.create('fr_FR')
 
 from mimesis import Person, Address
 import mimesis.enums
@@ -29,27 +27,15 @@ def main():
         return
 
     # Generate Customers that are between 18 and 100 years old
-    ls_dates = [fake_de.date_time_between(start_date="-100y", end_date="-18y", tzinfo=None) for i in range(0,num_gen)]
+    ls_dates = [fake_fr.date_time_between(start_date="-100y", end_date="-18y", tzinfo=None) for i in range(0,num_gen)]
     ls_dates.sort()
 
     ls_customer = []
     for i in range(0, len(ls_dates)):
-        s_country = random_country()
-        address = None
-        person = None
-        s_nationality = None
-        if s_country == 'DE':
-            address = Address('de')
-            person = Person('de')
-            s_nationality = 'Germany'
-        elif s_country == 'AT':
-            address = Address('de-at')
-            person = Person('de-at')
-            s_nationality = 'Austria'
-        else:
-            address = Address('de-ch')
-            person = Person('de-ch')
-            s_nationality = 'Switzerland'
+        s_country = 'FR'
+        address = Address('fr')
+        person = Person('fr')
+        s_nationality = 'France'
 
         s_sex = random_mf_flag()
         gender = mimesis.enums.Gender.FEMALE if s_sex == 'F' else mimesis.enums.Gender.MALE
@@ -71,7 +57,7 @@ def main():
 
     df_customer = pd.DataFrame(ls_customer, columns=ls_columns)
     
-    df_customer.to_csv('output/customers__de_at_ch.csv', sep=',', index=False, header=ls_columns)
+    df_customer.to_csv('output/customers_fr.csv', sep=',', index=False, header=ls_columns)
     
 
 def customer_number(i):
@@ -99,18 +85,6 @@ def random_marital_status_flag():
         return 'DIVORCED'
 
     return 'WIDOWED'
-
-
-
-def random_country():
-    r = random.randint(0,100)
-    if r % 3 == 0:
-        return 'DE'
-    elif r % 3 == 1:
-        return 'AT'
-
-    return 'CH'
-
 
 if __name__ == '__main__':
     main()

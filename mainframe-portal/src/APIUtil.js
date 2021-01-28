@@ -11,7 +11,7 @@ const headers = {
 }
 
 export const fetchPolicies = () =>
-    sleep(2000)
+//    sleep(2000)
     (fetch(`${api}/policy/all`, { headers })
         .then(res => res.json()))
 
@@ -20,7 +20,7 @@ export const fetchPolicy = (policy_id) =>
         .then(res => res.json())
 
 export const fetchCustomers = () =>
-    sleep(2000)
+//    sleep(2000)
     (fetch(`${api}/customer/all`, { headers })
         .then(res => res.json()))
 
