@@ -1,1 +1,6 @@
 run.sh
+MongoSyphon.log
+car_insurance_customers_cdc_work.json
+car_insurance_policies_cdc_work.json
+home_insurance_customers_cdc_work.json
+home_insurance_policies_cdc_work.json

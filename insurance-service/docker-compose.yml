@@ -9,7 +9,7 @@ services:
   environment:
    - ENV=development
    - PORT=4000
-   - DB=mongodb://host.docker.internal:27017/insurance
+   - DB=mongodb://demo_user:mongodb@demo-shard-00-00.mfctp.mongodb.net:27017,demo-shard-00-01.mfctp.mongodb.net:27017,demo-shard-00-02.mfctp.mongodb.net:27017/insurance?ssl=true&replicaSet=atlas-1h2vs6-shard-0&authSource=admin&retryWrites=true&w=majority
 networks:
  default:
   name: web_dev
